@@ -1,0 +1,82 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+    <div class="w-75 mx-auto my-4">
+
+        <div class="mb-3">
+            <label for="productName">productName :</label>
+            <input class="form-control my-2" type="text" id="productName">
+
+            <div class="alert alert-danger small d-none" role="alert">
+                first character must be capital from A - Z max 8 chracter
+              </div>
+        </div>
+        <div class="mb-3">
+            <label for="productPrice">productPrice :</label>
+            <input class="form-control my-2" type="number" id="productPrice">
+            <div class="alert alert-danger small  d-none" role="alert">
+                min price 1000 To max price 10000 
+              </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="productCategory">productCategory :</label>
+            <input class="form-control my-2" type="text" id="productCategory">
+            <div class="alert alert-danger small  d-none" role="alert">
+               category must to be mobile or tv or laptop
+              </div>
+
+        </div>
+
+        <div class="mb-3">
+            <label for="productDesc">productDesc :</label>
+            <textarea class="form-control my-2" type="text" id="productDesc"></textarea>
+            <div class="alert alert-danger small  d-none" role="alert">
+                max is 40 words
+              </div>
+
+        </div>
+        <button  id="submitBtn" class="btn btn-primary mb-4">add product</button>
+
+<!-- search input -->
+        
+<div class="mx-auto">
+    <label>Search in your Products</label>
+    <input onkeyup="searchProducts(this.value)" class="form-control" type="text">
+
+</div>
+
+<!-- start table -->
+      <table class="my-5 table table-striped table-hover caption-top text-center">
+        <caption class="fs-4">List Of Products</caption>
+          <thead class="table-dark py-5">
+              <th>index</th>
+              <th>productName</th>
+              <th>productPrice</th>
+              <th>productCategory</th>
+              <th>productDesc</th>
+              <th>Product Update</th>
+              <th>Product Delete</th>
+            </thead>
+            <tbody id="tableBody" class="my-5">
+                
+            </tbody>
+
+      </table>
+
+
+    </div>
+
+    
+
+
+    <script src="main.js"></script>
+</body>
+
+</html>

@@ -63,8 +63,8 @@ function searchProducts(term){
             <td>${allProducts[i].price}</td>
             <td>${allProducts[i].desc}</td>
             <td>${allProducts[i].category}</td>
-            <td><button onclick= getProductInfo(${i})  class="btn btn-info">update</button></td>
-            <td><button onclick = deleteProduct(${i}) class="btn btn-danger">Delete</button></td>
+            <td><button onclick="getProductInfo(${i})"  class="btn btn-info">update</button></td>
+            <td><button onclick ="deleteProduct(${i})" class="btn btn-danger">Delete</button></td>
         </tr>`
         }
 
@@ -101,9 +101,10 @@ function getProductInfo(index){
     productPrice.value = allProducts[index].price;
     submitBtn.innerHTML = "Update Product"
     currentIndex = index;
+    
 }
 // =================== to change value at current products===================
-function updateProduct(){
+function updateProduct(currentIndex){
 
     var product = {
         name : productName.value,
@@ -111,9 +112,9 @@ function updateProduct(){
         desc : productDesc.value,
         category : productCategory.value
     }
-    console.log(product);
   allProducts[currentIndex]=product;
   localStorage.setItem("product" ,JSON.stringify(allProducts));
+  displayProducts()
 }
 
 //======================== For AddProducts Button ===========================
@@ -122,8 +123,9 @@ submitBtn.addEventListener("click", function(){
 
     if(submitBtn.innerHTML == "add product"){
         addProducts();
-    }else{
-        updateProduct(); 
+    }else if (submitBtn.innerHTML == "Update Product"){
+        console.log("update")
+        updateProduct(currentIndex); 
     }
     
 });
